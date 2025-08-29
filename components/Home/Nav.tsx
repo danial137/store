@@ -29,8 +29,11 @@ const Nav = () => {
                     {/* not sign  */}
 
                     <SignedOut>
-                        <SignInButton />
-                        <UserIcon size={26} cursor={"pointer"} />
+                        <SignInButton>
+                            <UserIcon size={26} cursor={"pointer"} />
+                        </SignInButton>
+
+
                     </SignedOut>
 
                 </div>
