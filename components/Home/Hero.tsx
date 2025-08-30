@@ -10,10 +10,11 @@ const Hero = () => {
         {/* content */}
         <div>
           <h1 className='text-xl sm:text-2xl md:text-3xl  lg:text-4xl xl:text-5xl text-black font-bold uppercase'>
-            mega sale <span className='text-rose-600'>Special </span> offer up to{""}
-            <span className='text-orange-600'>
-              60%</span>{""}
+            mega sale <span className='text-rose-600'>Special </span> offer up to {""}
+            <span className='text-orange-600 pl-1'>
+              60% </span>{""}
             off
+            in <span className='pl-1 text-rose-500' >persian store</span>
           </h1>
           <p className='text-sm md:text-base lg:text-lg text-black opacity-70 mt-4'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis est quibusdam facere nesciunt, expedita numquam!Lorem ipsum dolor sit amet consectetur adipisicing </p>
           <div className='flex mt-6 items-center space-x-4'>

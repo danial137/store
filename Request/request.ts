@@ -3,3 +3,8 @@ export async function getAllCategory() {
     
     return categoryRes.json()
 }
+
+export async function getAllproduct() {
+    const productRes = await fetch("https://fakestoreapi.com/products");
+    return productRes.json()
+}
