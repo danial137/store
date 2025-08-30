@@ -1,12 +1,21 @@
 import { getSingleProduct } from '@/Request/request'
 import React from 'react'
 
-const ProductDetails = ({ params }: { params: { id: string } }) => {
-    const id = params.id
-    const singleProduct = getSingleProduct(id)
-  return (
-    <div>ProductDetails</div>
-  )
+interface PageProps {
+    params: { id: string }
+}
+
+const ProductDetails = async ({ params }: PageProps) => {
+    const { id } = params
+    const singleProduct = await getSingleProduct(id)
+
+    return (
+        <div>
+            <h1>{singleProduct.name}</h1>
+            <p>{singleProduct.description}</p>
+            <p>Price: ${singleProduct.price}</p>
+        </div>
+    )
 }
 
 export default ProductDetails
