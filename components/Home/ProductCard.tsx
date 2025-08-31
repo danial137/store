@@ -15,6 +15,8 @@ const ProductCard = ({ product }: Props) => {
 
     const num = Math.round(product.rating.rate)
     const ratingArry = new Array(num).fill(0)
+
+
     return (
         <div className='p-4 '>
             <div className='w-[200px] h-[150px]'>
