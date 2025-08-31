@@ -6,6 +6,9 @@ import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 import { Button } from '../ui/button'
+import { useDispatch, useSelector } from 'react-redux'
+import { addItem } from '@/store/cartSlice'
+import { RooteState } from '@/store/store'
 
 type Props = {
     product: Product
@@ -16,7 +19,13 @@ const ProductCard = ({ product }: Props) => {
     const num = Math.round(product.rating.rate)
     const ratingArry = new Array(num).fill(0)
 
+    const items=useSelector((state:RooteState)=>state.cart.items)
+console.log(items)
+    const dispatch=useDispatch()
 
+    const addTocartHandler = (product:Product) => {
+      dispatch(addItem(product))
+ }
     return (
         <div className='p-4 '>
             <div className='w-[200px] h-[150px]'>
@@ -52,7 +61,7 @@ const ProductCard = ({ product }: Props) => {
             {/* button */}
 
             <div className='mt-4 flex items-center space-x-2 '>
-                <Button size={"icon"}>
+                <Button onClick={()=>{addTocartHandler(product)}} size={"icon"}>
                     <ShoppingBag size={18}/>
                 </Button>
                 <Button size={"icon"} className='bg-red-500'>
