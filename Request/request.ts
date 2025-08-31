@@ -15,6 +15,6 @@ export async function getSingleProduct(id:string ) {
 } 
 
 export async function getProductByCategory(category:string) {
-    const productByCategoryRes = await fetch(`https://fakestoreapi.com/products/category/${category}`);
+    const productByCategoryRes = await fetch(`https://fakestoreapi.com/products/category`);
     return productByCategoryRes.json();
 }

@@ -1,27 +1,26 @@
-import { getProductByCategory, getSingleProduct } from "@/Request/request";
+import { getAllproduct, getProductByCategory, getSingleProduct } from "@/Request/request";
 import { Product } from "@/typing";
 import { Star } from "lucide-react";
 import Image from "next/image";
 import React from "react";
 import AddToCart from "./add-cart";
 import ProductCard from "@/components/Home/ProductCard";
+import Category from "@/components/Home/Category";
 
 export default async function ProductDetails({ params }: any) {
     const { id } = params;
     const singleProduct: Product = await getSingleProduct(id);
 
-    const relatedProduct: Product[] = (
-        await getProductByCategory(singleProduct.category)
-    ).map((p:Product) => ({
-        ...p,
-        image:
-            p.image && p.image.startsWith("http")
-                ? p.image
-                : p.image
-                    ? `https://fakestoreapi.com${p.image}`
-                    : "/placeholder.png",
-    }));
+    const allProduct = await getAllproduct()
+    const relatedProduct = []
 
+    for (let i = 0; i < allProduct.length; i++) {
+        if (allProduct[i].category === singleProduct.category) {
+            relatedProduct.push(allProduct[i])
+        }
+
+    } 
+    
     const num = Math.round(singleProduct?.rating?.rate || 0);
     const starArray = new Array(num).fill(0);
 

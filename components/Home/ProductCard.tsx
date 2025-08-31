@@ -20,7 +20,6 @@ const ProductCard = ({ product }: Props) => {
     const ratingArry = new Array(num).fill(0)
 
     const items=useSelector((state:RooteState)=>state.cart.items)
-console.log(items)
     const dispatch=useDispatch()
 
     const addTocartHandler = (product:Product) => {
