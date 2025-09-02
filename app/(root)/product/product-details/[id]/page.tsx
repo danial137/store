@@ -70,7 +70,7 @@ export default async function ProductDetails({ params }: any) {
                     <p className="mt-2 text-sm text-black text-opacity-70 font-semibold">Tag: Shop,PERSIAN</p>
                     <p className="mt-2 text-sm text-black text-opacity-70 font-semibold">SKU: {Math.random() * 500}</p>
 
-                    <AddToCart />
+                    <AddToCart product={singleProduct} />
                 </div>
             </div>
 
